@@ -7,12 +7,13 @@ Data eng task
 some of the asumption that are made for the task are as follows 
 ```
 	1. Files in the given folder are static and list of files does not increase, in other words its a history log of files in the mentioned folders
-	2. The inital few lines of the script isnt parallel and its logged as the location of the directory is set at this stage	
+	2. The inital few lines of the script isnt parallel and logged as the location of the directory is set at this stage	
 	3. Files exist in [input/checks/right_to_work,input/checks/identity] for the appopriate date and time, no missing hours/date combination.
 	4. Data for individual application is present both hourly files if required.
 	5. Data in each file is correct w.r.t Date and hour of the file.
 	6. list for both json are up to date and have not reduced or changed to affect historical data.
 	7. File type for all input files[csv & json] are UTF-8 & LF
+	8. metadata json can be verified once by the main script but is not done in this case 
 ```
 ### Prerequisites
 
@@ -41,15 +42,8 @@ pip3 --version
 ```
 
 requir.txt needs to be installed in the python env
+kindly note that its not >= for version type 
 
 ```
 pip3 install -r requir.txt 
 ```
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why

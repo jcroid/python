@@ -1,4 +1,4 @@
 pandas==0.25.1
 jsonschema==3.0.2
 ndjson==0.1.0
-
+numpy==1.17.0
