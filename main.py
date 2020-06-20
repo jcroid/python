@@ -3,6 +3,7 @@
 #######################
 import pandas as pd
 import os
+import sys
 import json
 import logging
 from multiprocessing import Pool
@@ -26,6 +27,26 @@ os.chdir(location)
 # setup the logging process
 logging.basicConfig(level=logging.DEBUG, filename="logs/etl.log", filemode="a+",
                     format="[%(asctime)s] - %(levelname)s - %(message)s")
+
+
+def lflverify(mylist, nameofjson):
+
+    mainlist = 1 if isinstance(mylist, list) else 0
+
+    try:
+        childlist = [1 for cmylist in mylist if isinstance(cmylist, list)]
+        childlist = 1 if len(childlist) == len(mylist) else len(childlist)
+
+        listtype = [1 for cmylist in mylist if isinstance(
+            cmylist[0], int) and isinstance(cmylist[1], str)]
+        listtype = 1 if len(listtype) == len(mylist) else len(listtype)
+
+        verify = mainlist + childlist + listtype
+        zero = 1 if verify == 3 else sys.exit("exit")
+    except:
+        logging.error("Hour" + nameofjson + " schema type not as defined")
+
+    return 
 
 
 def child(csvfile):
@@ -59,6 +80,8 @@ def child(csvfile):
     with open(mdemp) as data_file:
         data = data_file.read()
         c = json.loads(data)
+
+    zero = lflverify(mylist=c, nameofjson=mdemp.split('/')[2])
 
     with open(mdnat) as data_file:
         data = data_file.read()
@@ -113,9 +136,8 @@ def child(csvfile):
                  [0] + "ETL complete,elapsed time:" + str(t2))
     return None
 
-try:
-    fnames = os.listdir(location + "/input/checks/right_to_work")
-    pool = Pool(processes=process)
-    pool.map(child, fnames, chunksize=1)
-except Exception:
-    logging.error("Main" + traceback.print_exc() + "ETL did not start")
+
+fnames = os.listdir(location + "/input/checks/right_to_work")
+pool = Pool(processes=process)
+pool.map(child, fnames, chunksize=1)
+
