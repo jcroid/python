@@ -7,6 +7,7 @@ import json
 import logging
 from multiprocessing import Pool
 import argparse
+import traceback
 
 # collect all variables passed from the bash terminal into the script
 parser = argparse.ArgumentParser(description='List of option for this file')
@@ -15,7 +16,6 @@ parser.add_argument('-p', type=int, default=3,
 parser.add_argument('-d', type=str, required=True,
                     help='full dir of the folder , /home/aws1 not /home/aws1/input')
 args = parser.parse_args()
-
 # assign the var passed
 process = args.p
 location = args.d
@@ -113,7 +113,9 @@ def child(csvfile):
                  [0] + "ETL complete,elapsed time:" + str(t2))
     return None
 
-
-fnames = os.listdir(location + "/input/checks/right_to_work")
-pool = Pool(processes=process)
-pool.map(child, fnames, chunksize=1)
+try:
+    fnames = os.listdir(location + "/input/checks/right_to_work")
+    pool = Pool(processes=process)
+    pool.map(child, fnames, chunksize=1)
+except Exception:
+    logging.error("Main" + traceback.print_exc() + "ETL did not start")
