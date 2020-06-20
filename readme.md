@@ -25,23 +25,26 @@ What things you need to run the script
 4. Script is executed with rights to required folders
 ```
 
-### Installing
+### Installing packages
 
 A examples that tell you how to get a env running
 
-Say what the step will be
+check python version : Python 3.6.9
 
 ```
-Give the example
+python3 --version
+```
+check pip version : pip 9.0.1
+
+```
+pip3 --version
 ```
 
-And repeat
+requir.txt needs to be installed in the python env
 
 ```
-until finished
+pip3 install -r requir.txt 
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
