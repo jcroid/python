@@ -18,15 +18,17 @@ def main():
                         help='full dir of the folder , /home/aws1 not /home/aws1/input')
     args = parser.parse_args()
 
-    # assign the var passed
+    # assign the var passed to the file
     process = args.p
     location = args.d
 
+    # for function to pass var to child process
     func = partial(child, location)
 
     fnames = os.listdir(location + "/input/checks/right_to_work")
     pool = Pool(processes=process)
     pool.map(func, fnames, chunksize=1)
+    pool.close()
 
 main()
 print("run main func")
