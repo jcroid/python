@@ -96,7 +96,7 @@ def child(location, csvfile):
         data = np.empty(0, dtype=dtypes)
         df = pd.DataFrame(data)
 
-        if all(a.dtypes != df.dtypes):
+        if all(b.dtypes != df.dtypes):
             logging.error("Hour " + chid.split('/')
                           [2] + "-" + csvfile + " columns type not as defined")
             return
