@@ -68,7 +68,7 @@ python3 /home/usr1/main.py -d /location/of/all/files -p 6
 
 The Parent 'folder1' directory is structured as follows (assume local UNIX file system)
 
-
+```
 folder1
 |__ input
 |
@@ -81,11 +81,11 @@ folder1
 | |___ etl.log
 |
 |
-
+```
 
 The 'input' directory is structured as follows (assume local UNIX file system)
 
-
+```
 input
 |__ metadata
 | |__ applicant_nationality.json
@@ -101,3 +101,4 @@ input
 | |___ 2017-07-26-05.csv
 | |___ 2017-07-26-06.csv
 | |___ ...
+```
