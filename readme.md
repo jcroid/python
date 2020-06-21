@@ -1,6 +1,6 @@
 # Data Engineering 
 
-Data Eng Sample task
+Sample task
 
 ## Getting Started
 
