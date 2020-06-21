@@ -28,7 +28,7 @@ What things you need to run the script
 
 ### Installing packages
 
-A examples that tell you how to get a env running
+A example that tell you how to get a env running
 
 check python version : Python 3.6.9
 
@@ -46,4 +46,18 @@ kindly note that its not >= for version type
 
 ```
 pip3 install -r requir.txt 
+```
+### Run file 
+
+A example  of how to run the file once the env is setup
+
+-d is required this is the location of the input files example if files are in /home/usr1/folder1/input/checks
+you should write -d /home/usr1/folder1
+```
+python3 /home/usr1/main.py -d /location/of/all/files 
+```
+
+-p is optional it defaults to 3
+```
+python3 /home/usr1/main.py -d /location/of/all/files -p 6
 ```
