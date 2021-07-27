@@ -41,14 +41,4 @@ another microservice), the following requirements need to be met.
 
 Answer the questions in the [FOLLOW-UP.md](./FOLLOW-UP.md) file.
 
-## Submitting Your Code
 
-Once you've completed the test, please compress your files (via zip or tar) and
-return them as a link or email attachment in reply to your test invite. We'd like the
-code in your submission to remain private, so please avoid committing or pushing
-the code publicly.
-
-Once we receive it, a member of our team will review and we'll get back to you
-as soon as possible.
-
-Thanks!
