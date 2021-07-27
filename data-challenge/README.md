@@ -1,11 +1,3 @@
-<div align="center">
-  <p>
-    <img src="assets/logo_black.svg" width="250" />
-  </p>
-  <p>
-    The new standard for fiat to crypto
-  </p>
-</div>
 
 # Takehome Test (Data)
 
